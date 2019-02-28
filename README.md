@@ -47,7 +47,7 @@ wget https://pjreddie.com/media/files/yolov3.weights
 - As expected, the detection accuracy is extreamly high with this compared to the above 2 methods. 
 For finding the accuracy of live human detection, we save all frames and check in how many frames detections were falsely made or missed.
 
-- Using the above, F1 score comes to:  0.90 (Precision=1 and recall=124/157 in 157 relevant frames)
+- Using the above, F1 score comes to:  0.90 (Precision=1 and recall=124/151 from 151 relevant frames)
 
 - Also, the live people count is also shown by counting instances of people.
 
