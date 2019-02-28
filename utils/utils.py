@@ -213,5 +213,7 @@ def build_targets(pred_boxes, pred_conf, pred_cls, target, anchors, num_anchors,
 
 
 def create_outvideo_folder():
+    if not os.path.exists("data/frames"):
+        os.makedirs("data/frames")
     if not os.path.exists("data/outvideos"):
         os.makedirs("data/outvideos")

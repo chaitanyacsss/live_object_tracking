@@ -3,3 +3,5 @@ __pycache__/
 dump/
 data/videos/
 config/yolov3.weights
+data/outvideos/*
+data/frames/*

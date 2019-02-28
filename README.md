@@ -23,7 +23,8 @@ python detection_using_haar_cascade.py --help
 python detection_using_haar_cascade.py
 ```
 
-2) Histogram of oriented Gradients (HoGDescripter): We use the HoG people descriptor provided by cv2 to detect people. 
+
+2) Histogram of oriented Gradients (HoGDescripter): We use the HoG people descriptor provided by cv2 to detect people. The video with bounding boxes is saved to [data/outvideos](data/outvideos)
 
 ```
 # To see the options/arguments
@@ -32,6 +33,8 @@ python detection_using_HoG.py --help
 # to run on webcam with Default settings
 python detection_using_HoG.py
 ```
+
+This simple technique also works with very limited accuracy. Works well with people at a distance and less accurate with close objects.
 
 3) YOLO v3: This is the state of the art algorithm in object detection. It has a 106 layer fully convolutional underlying architecture and incorporates upsampling, skip connections 
 and residual blocks, which were not a part of YOLO V2. While this extra deep architecture runs slower than the previous version, the detection here is done at 3 different scales, which makes it much 
@@ -42,9 +45,9 @@ wget https://pjreddie.com/media/files/yolov3.weights
 ```
 
 - As expected, the detection accuracy is extreamly high with this compared to the above 2 methods. 
-For finding the accuracy of live human detection, we save all frames and check how many times detections were falsely made or missed.
+For finding the accuracy of live human detection, we save all frames and check in how many frames detections were falsely made or missed.
 
-- The F1 score comes to: 
+- Using the above, F1 score comes to:  0.90 (Precision=1 and recall=124/157 in 157 relevant frames)
 
 - Also, the live people count is also shown by counting instances of people.
 
@@ -89,11 +92,11 @@ The video with bounding boxes is saved to [data/outvideos](data/outvideos) using
 1) While YOLO v3 pretrained is easy and accurate for object detection, we can reduce the computation complexity by training a simpler/ 
 less complex model if the requirement is only Person detection rather than multiple objects.
 
-2) Since this model gives very accurate predictions for object bounding boxes, applying semantic segmentation on each final object bounding box would result in Instance Segmentation. 
-since the objects are already pointing to individual instances. Such combination of Object detection followed by semantic segmentation is implemented 
+2) Since this model gives very accurate predictions for object bounding boxes, applying semantic segmentation on each final object bounding box would result in Instance Segmentation, 
+since the bounding boxes already point to individual instances. Such combination of Object detection followed by semantic segmentation is implemented 
 in the [Mask R-CNN](https://medium.freecodecamp.org/mask-r-cnn-explained-7f82bec890e3) architechture for instance segmentation.
 
-![data/instance_segmentation.png](instance_segmentation.png)
+![data/instance_segmentation.png](data/instance_segmentation.png)
 
 3) Identifying apples ans shirts? Identifying smaller objects like apples is possible with YOLO v3 as discussed above. Shirts, can also be recognized as long as they are on a rack. 
 Although, we apply non-maximum suppression(NMS) in our algorithm to remove lower confidence bounding boxes which have high overlap (Intersection over Union) with other bounding boxes. we can imaging
