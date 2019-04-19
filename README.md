@@ -12,7 +12,7 @@ pip install -r requirements.txt --no-index --find-links file:///tmp/packages
 
 ## Methods ##
 
-1) Haar-cascades: Three different cascades were tried (face eyes and full body). Had little success with full body and eyes while the results were not bad with the face cascades.
+1) *Haar-cascades*: Three different cascades were tried (face eyes and full body). Had little success with full body and eyes while the results were not bad with the face cascades.
 The face recognition too only works on front profile, which is not satisfactory.
 
 ```
@@ -24,7 +24,7 @@ python detection_using_haar_cascade.py
 ```
 
 
-2) Histogram of oriented Gradients (HoGDescripter): We use the HoG people descriptor provided by cv2 to detect people. The video with bounding boxes is saved to [data/outvideos](data/outvideos)
+2) *Histogram of oriented Gradients (HoGDescripter)*: We use the HoG people descriptor provided by cv2 to detect people. The video with bounding boxes is saved to [data/outvideos](data/outvideos)
 
 ```
 # To see the options/arguments
@@ -36,7 +36,7 @@ python detection_using_HoG.py
 
 This simple technique also works with very limited accuracy. Works well with people at a distance and less accurate with close objects.
 
-3) YOLO v3: This is the state of the art algorithm in object detection. It has a 106 layer fully convolutional underlying architecture and incorporates upsampling, skip connections 
+3) *YOLO v3*: This is the state of the art algorithm in object detection. It has a 106 layer fully convolutional underlying architecture and incorporates upsampling, skip connections 
 and residual blocks, which were not a part of YOLO V2. While this extra deep architecture runs slower than the previous version, the detection here is done at 3 different scales, which makes it much 
 better at identifying smaller objects. We download the pretrained weights (trained on COCO dataset with 80 classes) using the following command and place it in the [config](config/) folder.
 
@@ -60,7 +60,7 @@ python detection_using_darknet.py --help
 python detection_using_darknet.py
 ```
 
-Listing out all available options :
+*Listing out all available options* :
 ```
 usage: detection_using_darknet.py [-h] [-v VIDEO] [-c CONFIG] [-o ONLY]
                                   [-s SAVE] [-w WRITE]
